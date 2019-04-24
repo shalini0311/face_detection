@@ -54,6 +54,7 @@
 
                 postImageReq.onload = function(event) {
                     var faces = postImageReq.response.faces;
+                    var name = postImageReq.response.name;
 
                     self.drawFaces(faces);
                     self.scheduleFrameGrab();
@@ -86,7 +87,12 @@
         handleSuccess: function(stream) {
             var videoTracks = stream.getVideoTracks();
             console.log('Got stream with constraints:', constraints);
+            alert('Hello');
+            console.log("Shalini");
+            console.log(name);
+            console.log(faces);
             console.log('Using video device: ' + videoTracks[0].label);
+
             stream.oninactive = function() {
                 console.log('Stream inactive');
             };
